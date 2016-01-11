@@ -1,0 +1,8 @@
+#This is a bbappend example file, renamed to mprotect-test_0.1.bbappend-test to keep it out of bitbake processing so that mprotect_test executable can confirm that MPROTECT is working.
+#If it were renamed to mprotect-test_0.1.bbappend then bitbake would pick it up and then mprotect_test would be able to bypass MPROTECT.
+
+#Users of meta-security-rockwell can likewise add execptions to their binaries that require it by copying this example .bbappend to the correct-named file and modifying the ROCKWELL_ADD_EXCEPTION_${PN} 
+#to specify the binary requiring the exception
+
+inherit rockwell-exception
+ROCKWELL_ADD_MPROTECT_EXCEPTION_${PN} = "${D}${bindir}/mprotect-test"

@@ -1,0 +1,26 @@
+diff --git a/source-arm/TR-181/board_sbapi/cosa_dhcpv4_apis.c b/source-arm/TR-181/board_sbapi/cosa_dhcpv4_apis.c
+index 1b6453b..3001ddf 100644
+--- a/source-arm/TR-181/board_sbapi/cosa_dhcpv4_apis.c
++++ b/source-arm/TR-181/board_sbapi/cosa_dhcpv4_apis.c
+@@ -456,7 +456,7 @@ int usg_get_cpe_associated_ssid(void *arg)
+ 
+     while(1){
+ reopen:
+-        fd = open(WIFI_CLIENTS_MAC_FILE, O_CREAT|O_WRONLY|O_TRUNC);
++        fd = open(WIFI_CLIENTS_MAC_FILE, O_CREAT|O_WRONLY|O_TRUNC, 0644);
+         if (-1 == fd){
+             sleep(1);
+             goto reopen;
+diff --git a/source/PandMSsp/ssp_main.c b/source/PandMSsp/ssp_main.c
+index 5d1553e..9786750 100644
+--- a/source/PandMSsp/ssp_main.c
++++ b/source/PandMSsp/ssp_main.c
+@@ -177,7 +177,7 @@ static void _print_stack_backtrace(void)
+          */
+         count = backtrace( tracePtrs, 100 );
+ 
+-        fd = open(path, O_RDWR | O_CREAT);
++        fd = open(path, O_RDWR | O_CREAT, 0644);
+         if (fd < 0)
+         {
+             fprintf(stderr, "failed to open backtrace file: %s", path);

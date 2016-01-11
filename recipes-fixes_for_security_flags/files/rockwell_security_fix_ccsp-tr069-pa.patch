@@ -1,0 +1,13 @@
+diff --git a/source/Ssp/ssp_main.c b/source/Ssp/ssp_main.c
+index 44ab03e..495c922 100644
+--- a/source/Ssp/ssp_main.c
++++ b/source/Ssp/ssp_main.c
+@@ -139,7 +139,7 @@ static void _print_stack_backtrace(void)
+ 
+     int fd;
+     const char* path = "/nvram/tr069passp_backtrace";
+-    fd = open(path, O_RDWR | O_CREAT);
++    fd = open(path, O_RDWR | O_CREAT, 0644);
+     if (fd < 0)
+     {
+         fprintf(stderr, "failed to open backtrace file: %s", path);

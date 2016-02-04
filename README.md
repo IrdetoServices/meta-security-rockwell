@@ -57,9 +57,9 @@ This layer depends on:
   revision: 129363021fc751404b2881d41fd8d4be21eaecb3
   prio: default
 
-  URI: https://github.com/IrdetoServices/meta-rdk-belvedere.git
-  branch: daisy-compat
-  revision: c05cc7f09bfaa7f51fc0d2e72b4ec9819adf7825
+  URI: https://github.com/belvedere-yocto/meta-rdk-belvedere.git
+  branch: latest
+  revision: bc735d3d4d4e9d3e12fb41b7709db09c1a75e5a7
   prio: default
 
   URI: git://git.openembedded.org/meta-openembedded.git /{meta-oe, meta-networking, meta-perl}
@@ -84,6 +84,7 @@ This layer has been validated in the 'stack' of layers described in the 'Depende
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="github-irdeto" fetch="https://github.com/IrdetoServices" review="" />
+  <remote name="github-belvedere-yocto" fetch="https://github.com/belvedere-yocto" review="" />
   <remote name="yocto" fetch="git://git.yoctoproject.org" review="" />
   <remote name="openembedded" fetch="git://git.openembedded.org" review="" />
   <remote name="linaro" fetch="git://git.linaro.org/openembedded" review="" />
@@ -98,8 +99,8 @@ This layer has been validated in the 'stack' of layers described in the 'Depende
     remote="github-irdeto" name="meta-raspberrypi"
     revision="129363021fc751404b2881d41fd8d4be21eaecb3" /> <!-- daisy-compat branch 20160120 -->
   <project path="poky/meta-rdk-belvedere"
-    remote="github-irdeto" name="meta-rdk-belvedere"
-    revision="c05cc7f09bfaa7f51fc0d2e72b4ec9819adf7825" /> <!-- daisy-compat branch 20160120-->
+    remote="github-belvedere-yocto" name="meta-rdk-belvedere"
+    revision="bc735d3d4d4e9d3e12fb41b7709db09c1a75e5a7" /> <!-- latest branch 20160204-->
   <project path="poky/meta-openembedded"
     remote="openembedded" name="meta-openembedded"
     revision="d3d14d3fcca7fcde362cf0b31411dc4eea6d20aa" /> <!-- daisy branch 20160120 -->
@@ -228,18 +229,7 @@ File                                                                |License |De
 ```│   ├── hicolor-icon-theme_0.12.bbappend```                      | MIT    | Overlay changes to the poky (daisy) hicolor-icon-theme recipe
 ```│   └── json-glib_0.16.2.bbappend```                             | MIT    | Overlay changes to the poky (daisy) json-glib recipe
 ```├── recipes-fixes_for_security_flags```                          | &nbsp; | &nbsp;
-```│   ├── ccsp-mta-agent.bbappend```                               | ASLv2  | Overlay changes to the rdk-b MTA recipe
-```│   ├── ccsp-p-and-m.bbappend```                                 | ASLv2  | Overlay changes to the rdk-b P&M recipe
-```│   ├── ccsp-tr069-pa.bbappend```                                | ASLv2  | Overlay changes to the rdk-b tr069 recipe
-```│   ├── cve-check-tool_5.4.bbappend```                           | MIT    | Overlay changes to the isafw recipe
-```│   ├── files```                                                 | &nbsp; | &nbsp;
-```│   │   ├── rockwell_security_fix_ccsp-mta-agent.patch```        | ASLv2  | Patch to the rdk-b MTA sources
-```│   │   ├── rockwell_security_fix_ccsp-p-and-m.patch```          | ASLv2  | Patch to the rdk-b P&M sources
-```│   │   ├── rockwell_security_fix_ccsp-tr069-pa.patch```         | ASLv2  | Patch to the rdk-b tr069 sources
-```│   │   ├── rockwell_security_fix_test-and-diagnostic.patch```   | ASLv2  | Patch to the rdk-b test-and-diagnostic sources
-```│   │   └── rockwell_security_fix_utopia.patch```                | ASLv2  | Patch to the rdk-b utopia sources
-```│   ├── test-and-diagnostic.bbappend```                          | ASLv2  | Overlay changes to the rdk-b test-and-diagnostic recipe
-```│   └── utopia.bbappend```                                       | ASLv2  | Overlay changes to the rdk-b utopia recipe
+```│   └── cve-check-tool_5.4.bbappend```                           | MIT    | Overlay changes to the isafw recipe
 ```├── recipes-kernel```                                            | &nbsp; | &nbsp;
 ```│   └── linux```                                                 | &nbsp; | &nbsp;
 ```│       ├── linux-raspberrypi-3.12.21```                         | &nbsp; | &nbsp;
